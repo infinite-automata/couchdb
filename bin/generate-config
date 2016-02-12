@@ -1,0 +1,18 @@
+#!/bin/sh
+
+TMPL=${1:-local.ini.tmpl}
+
+host=${COUCHDB_HOST:=127.0.0.1}
+port=${COUCHDB_PORT:=5984}
+username=${COUCHDB_USERNAME}
+password=${COUCHDB_PASSWORD}
+
+config=$(cat "$TMPL" \
+    | sed 's,{{host}},'$host, \
+    | sed 's,{{port}},'$port, \
+    | sed 's,{{username}},'$username, \
+    | sed 's,{{password}},'$password,)
+
+echo "$config"
+
+>&2 echo "$(date --iso-8601 | sed 's/T/ /; s/+0000//') INFO [Config] Generated configuration"

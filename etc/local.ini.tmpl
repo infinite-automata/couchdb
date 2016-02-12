@@ -1,0 +1,12 @@
+[couch_httpd_auth]
+require_valid_user = false
+
+[httpd]
+port = {{port}}
+bind_address = {{host}}
+
+[admins]
+{{username}} = {{password}}
+
+[httpd_global_handlers]
+_search = {couch_httpd_proxy, handle_proxy_req, <<"http://127.0.0.1:5985">>}
