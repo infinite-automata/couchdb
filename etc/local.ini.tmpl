@@ -9,4 +9,4 @@ bind_address = {{host}}
 {{username}} = {{password}}
 
 [httpd_global_handlers]
-_search = {couch_httpd_proxy, handle_proxy_req, <<"http://127.0.0.1:5985">>}
+_search = {couch_httpd_proxy, handle_proxy_req, <<"http://{{search_host}}:{{search_port}}">>}

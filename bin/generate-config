@@ -6,12 +6,16 @@ host=${COUCHDB_HOST:=127.0.0.1}
 port=${COUCHDB_PORT:=5984}
 username=${COUCHDB_USERNAME}
 password=${COUCHDB_PASSWORD}
+search_host=${COUCHDB_SEARCH_HOST:=127.0.0.1}
+search_port=${COUCHDB_SEARCH_PORT:=5985}
 
 config=$(cat "$TMPL" \
     | sed 's,{{host}},'$host, \
     | sed 's,{{port}},'$port, \
     | sed 's,{{username}},'$username, \
-    | sed 's,{{password}},'$password,)
+    | sed 's,{{password}},'$password, \
+    | sed 's,{{search_host}},'$search_host, \
+    | sed 's,{{search_port}},'$search_port,)
 
 echo "$config"
 
