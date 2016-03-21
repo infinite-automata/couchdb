@@ -1,4 +1,4 @@
-## quay.io/infiniteautomata/couchdb
+## couchdb
 
 A thin configuration wrapper around [`klaemo/docker-couchdb`][klaemo/docker-couchdb],
 the offical CouchDB Docker image.
